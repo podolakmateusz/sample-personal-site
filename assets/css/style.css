@@ -26,7 +26,6 @@ a {
     color: #333333; 
 }
 
-
 .header {
     width: 100%;
     height:auto;
@@ -49,7 +48,6 @@ a {
     font-size: 1.875rem;
     line-height: 2.125rem;
     color: #fff;
-    font-family: "Montserrat";
     font-weight: 700;   
 }
 
@@ -63,15 +61,17 @@ a {
     display: flex;
     justify-content: space-around;
     width:45%;
-
 }
 
 .nav__sublist {
     position: absolute;
     padding: 0;
-    width: 14%;
+    width: 6.3rem;
     display: none;
+}
 
+.nav__sublist--open {
+    display: block;
 }
 
 .nav__sublist-item {
@@ -89,6 +89,12 @@ a {
     font-weight: 700;
 }
 
+.nav__language-btn {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 .nav__icon {
     background-color: transparent;
     border: none;
@@ -104,16 +110,22 @@ a {
     transition: all 0.3s ease;
 }
 
-.icon--line1 {
+.toggle .icon--line1 {
     transform: rotate(45deg) translate(5px,6px);
 }
-.icon--line2 {
+
+.toggle .icon--line2 {
     opacity: 0;
 }
-.icon--line3 {
+
+.toggle .icon--line3 {
     transform: rotate(-45deg) translate(5px,-6px);
 }
 
+
+.nav-active {
+    transform: translateY(0%);
+}
 
 .lock-scroll {
     overflow: hidden;
@@ -132,9 +144,9 @@ a {
 }
 
 @media screen and (max-width: 768px) {
-.header__nav {
-    background-color:   rgba(62,10,18, 0.92) !important;
-    height: 3.75rem !important;
+    .header__nav {
+        background-color:   rgba(62,10,18, 0.92) !important;
+        height: 3.75rem !important;
 }
   
     .nav__list {
@@ -142,36 +154,40 @@ a {
         right: 0;
         height: calc(100vh - 60px);
         background-color:   rgba(62,10,18, 0.92);
-        /* background-color: #fff; */
         top: 3.75rem;
         margin: 0;
         padding: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content:flex-start;
         width: 100%;
         transform: translateY(-120%);
         transition: transform 0.5s ease-in;
     }
+    
     .nav__item  {
         opacity:0;
+        padding-top: 3%;
     }
+       
     .nav__icon {
         display: block;
     }
-}
+    
+    .nav__sublist {
+        width:100%;
 
-.nav-active {
-    transform: translateY(0%);
+    }
 }
 
 @keyframes navLinkFade {
-    from{
+    from {
         opacity: 0;
         transform: translateX(50px);
     }
     
-    to{
+    to {
         opacity: 1;
         transform: translateX(0px);
     }
